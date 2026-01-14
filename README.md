@@ -216,7 +216,7 @@ For tracking SDK updates and feature parity, see issue [#14](https://github.com/
 
 ### For Developers
 - `backend/README.md` - ASP.NET Core API setup and configuration
-- `frontend/README.md` - React frontend development (if present)
+- `frontend/README.md` - React frontend development
 - `infra/README.md` - Azure infrastructure overview
 - `deployment/README.md` - Deployment scripts and hooks
 

@@ -1,8 +1,26 @@
 ---
+name: Web App Agent
 description: Azure AI Foundry Agent Service development mode - SDK research, MCP integration, and agent implementation patterns
+argument-hint: Describe what you want to build, fix, or investigate
 tools: ['execute/getTerminalOutput', 'execute/runTask', 'execute/createAndRunTask', 'execute/runInTerminal', 'execute/testFailure', 'execute/runTests', 'read/terminalSelection', 'read/terminalLastCommand', 'read/getTaskOutput', 'read/problems', 'read/readFile', 'edit', 'search', 'web', 'agent', 'microsoftdocs/mcp/*', 'playwright/*', 'todo']
 model: Claude Opus 4.5 (copilot)
-name: Web App Agent
+handoffs:
+  - label: Plan Feature
+    agent: Plan Feature
+    prompt: Before implementing, create a detailed plan for this feature or change.
+    send: false
+  - label: Test in Browser
+    agent: Web App Agent
+    prompt: Test the changes using Playwright browser tools. Navigate to http://localhost:5173 and verify the functionality.
+    send: true
+  - label: Check Docs
+    agent: Review Docs
+    prompt: Review any documentation changes made above for quality and consistency.
+    send: true
+  - label: Create Commit
+    agent: Git Commit
+    prompt: Review the staged changes and create a commit following repository standards.
+    send: false
 ---
 
 # Web App Agent — Savant Mode

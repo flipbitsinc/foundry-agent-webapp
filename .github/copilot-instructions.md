@@ -38,6 +38,18 @@ runSubagent(
 
 **What subagents research**: Codebase patterns, SDK docs, GitHub examples, browser testing, deployment logs.
 
+## Agents
+
+| Agent | Purpose | When to Use |
+|-------|---------|-------------|
+| `Web App Agent` | Full implementation mode with all tools | Building features, fixing bugs, code changes |
+| `Plan Feature` | Read-only planning mode | Design before implementing, multi-step features |
+| `Review Issues` | GitHub issue analysis and categorization | Reviewing issues, prioritizing work, assigning labels |
+| `Review Docs` | Documentation quality assurance | Reviewing READMEs, skills, agents for consistency |
+| `Git Commit` | Git commit with repository standards | Creating detailed commits following conventions |
+
+**Workflow**: Use `Review Issues` to analyze issues → `Plan Feature` for implementation design → `Web App Agent` for implementation → `Review Docs` for documentation updates → `Git Commit` for standardized commits.
+
 ## Skills (ALWAYS Load First)
 
 **CRITICAL**: Before ANY code exploration or subagent research, FIRST read relevant skill files to understand project patterns and conventions. Skills provide the "how things work here" context that makes code exploration productive.
