@@ -51,6 +51,7 @@
       "options": {
         "cwd": "${workspaceFolder}/frontend"
       },
+      "dependsOn": ["Install Frontend Dependencies"],
       "isBackground": true,
       "problemMatcher": {
         "pattern": {
@@ -97,8 +98,9 @@
       },
       "problemMatcher": [],
       "presentation": {
-        "reveal": "always",
-        "panel": "dedicated"
+        "reveal": "silent",
+        "panel": "shared",
+        "showReuseMessage": false
       }
     }
   ]
