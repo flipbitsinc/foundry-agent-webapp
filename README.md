@@ -96,9 +96,9 @@ The workspace includes optimized VS Code configuration for AI-assisted developme
 | Task | Description | Port |
 |------|-------------|------|
 | `Backend: ASP.NET Core API` | `dotnet watch run` with hot reload | 8080 |
-| `Frontend: React Vite` | `npm run dev` with HMR | 5173 |
+| `Frontend: React Vite` | `npm run dev` with HMR (auto-installs deps) | 5173 |
 | `Start Dev (VS Code Terminals)` | Starts both in parallel (default build task) | - |
-| `Install Frontend Dependencies` | `npm install --legacy-peer-deps` | - |
+| `Install Frontend Dependencies` | `npm install --legacy-peer-deps` (runs automatically) | - |
 
 **Hot Reload Workflow**:
 - **Backend**: Edit C# → Save → .NET auto-recompiles → Check terminal for errors

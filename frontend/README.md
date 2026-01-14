@@ -57,13 +57,15 @@ frontend/src/
 
 ### Start
 
+**Option 1: VS Code task (recommended)**
+- Run task `Frontend: React Vite` - dependencies are installed automatically
+
+**Option 2: Manual**
 ```powershell
 cd frontend
 npm install --legacy-peer-deps
 npm run dev
 ```
-
-**Or** use VS Code task: `Frontend: React Vite`
 
 Frontend runs at http://localhost:5173 with Hot Module Replacement (HMR).
 
