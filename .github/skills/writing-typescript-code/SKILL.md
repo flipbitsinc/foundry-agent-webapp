@@ -1,9 +1,6 @@
 ---
 name: writing-typescript-code
-description: >
-  Provides TypeScript and React coding standards for this repository.
-  Use when writing or modifying TypeScript code, creating React components,
-  implementing MSAL authentication, or working with the frontend.
+description: Provides TypeScript and React coding standards for this repository. Use when writing or modifying TypeScript code, creating React components, implementing MSAL authentication, or working with the frontend.
 ---
 
 # TypeScript Coding Standards

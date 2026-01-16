@@ -1,9 +1,6 @@
 ---
 name: testing-with-playwright
-description: >
-  Provides Playwright MCP testing workflow for the web application.
-  Use when testing UI changes, verifying chat functionality, debugging
-  frontend issues, or validating state transitions in the browser.
+description: Provides Playwright MCP testing workflow for the web application. Use when testing UI changes, verifying chat functionality, debugging frontend issues, or validating state transitions in the browser.
 ---
 
 # Testing with Playwright MCP

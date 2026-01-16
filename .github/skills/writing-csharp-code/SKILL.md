@@ -1,9 +1,6 @@
 ---
 name: writing-csharp-code
-description: >
-  Provides C# and ASP.NET Core coding standards for this repository.
-  Use when writing or modifying C# code, implementing API endpoints,
-  configuring middleware, or working with authentication in the backend.
+description: Provides C# and ASP.NET Core coding standards for this repository. Use when writing or modifying C# code, implementing API endpoints, configuring middleware, or working with authentication in the backend. Use when writing or modifying C# code, implementing API endpoints,
 ---
 
 # C# Coding Standards

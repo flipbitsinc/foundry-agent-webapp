@@ -1,9 +1,6 @@
 ---
 name: researching-azure-ai-sdk
-description: >
-  Provides research patterns for Azure AI Foundry Agent Service SDK.
-  Use when implementing agent features, looking up SDK methods, finding
-  code samples, or troubleshooting Azure.AI.Projects API usage.
+description: Provides research patterns for Azure AI Foundry Agent Service SDK. Use when implementing agent features, looking up SDK methods, finding code samples, or troubleshooting Azure.AI.Projects API usage.
 ---
 
 # Researching Azure AI SDK

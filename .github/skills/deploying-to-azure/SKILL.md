@@ -1,9 +1,6 @@
 ---
 name: deploying-to-azure
-description: >
-  Provides deployment commands and troubleshooting for Azure Container Apps.
-  Use when running azd commands, deploying containers, debugging deployment
-  failures, or updating infrastructure in this repository.
+description: Provides deployment commands and troubleshooting for Azure Container Apps. Use when running azd commands, deploying containers, debugging deployment failures, or updating infrastructure in this repository.
 ---
 
 # Deploying to Azure

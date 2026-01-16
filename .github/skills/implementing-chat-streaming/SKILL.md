@@ -1,9 +1,6 @@
 ---
 name: implementing-chat-streaming
-description: >
-  Provides SSE streaming patterns for the chat API and frontend.
-  Use when implementing or modifying chat streaming, handling SSE events,
-  or troubleshooting message flow between frontend and backend.
+description: Provides SSE streaming patterns for the chat API and frontend. Use when implementing or modifying chat streaming, handling SSE events, or troubleshooting message flow between frontend and backend.
 ---
 
 # Chat Streaming Implementation

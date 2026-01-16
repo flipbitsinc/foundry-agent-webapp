@@ -1,8 +1,6 @@
 ---
 name: validating-ui-features
-description: >
-  Provides step-by-step procedures for validating UI features:
-  theme toggle, new chat, cancel stream, markdown rendering, and token usage info.
+description: Provides step-by-step procedures for validating UI features - theme toggle, new chat, cancel stream, markdown rendering, and token usage info.
 ---
 
 # Validating UI Features

@@ -1,9 +1,6 @@
 ---
 name: writing-bicep-templates
-description: >
-  Provides Bicep coding standards for Azure infrastructure in this repository.
-  Use when writing or modifying Bicep files, configuring Container Apps,
-  setting up RBAC, or working with Azure resources.
+description: Provides Bicep coding standards for Azure infrastructure in this repository. Use when writing or modifying Bicep files, configuring Container Apps, setting up RBAC, or working with Azure resources.
 ---
 
 # Bicep Coding Standards
