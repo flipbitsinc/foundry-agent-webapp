@@ -60,6 +60,21 @@ azd deploy
 - Local development: `.\deployment\scripts\start-local-dev.ps1`
 - Clean up: `azd down --force --purge`
 
+**Managing Tenant ID**:
+By default, `azd up` auto-detects your tenant ID from the currently logged-in Azure account. If you need to use a different tenant for Entra ID:
+
+```powershell
+# Set your tenant ID explicitly (before running azd up)
+azd env set ENTRA_TENANT_ID "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+# Remove manually set tenant ID to re-enable auto-detection
+azd env unset ENTRA_TENANT_ID
+```
+
+See tenant diagnostics during pre-provisioning:
+- `[OK] Tenant: xxxxxxxx-xxxx... (MANUAL)` - Using your explicitly configured tenant
+- `[OK] Tenant: xxxxxxxx-xxxx... (AUTO-DETECTED)` - Using current Azure account's tenant
+
 ## Docker Details
 
 **Build strategy**: Multi-stage (React build → .NET build → Runtime)

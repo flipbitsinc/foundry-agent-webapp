@@ -8,6 +8,8 @@ param aiAgentId string
 param entraSpaClientId string
 param entraTenantId string
 param webImageName string
+param customDomainName string = ''
+param customDomainCertificateName string = ''
 
 var abbrs = loadJsonContent('./abbreviations.json')
 
@@ -50,6 +52,8 @@ module webApp './core/host/container-app.bicep' = {
     ]
     enableIngress: true
     external: true
+    customDomainName: customDomainName
+    customDomainCertificateId: !empty(customDomainCertificateName) ? '${containerAppsEnvironmentId}/managedCertificates/${customDomainCertificateName}' : ''
   }
 }
 

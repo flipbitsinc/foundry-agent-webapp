@@ -25,6 +25,12 @@ param entraTenantId string = tenant().tenantId
 @description('Container image for web service (set by postprovision hook)')
 param webImageName string = 'mcr.microsoft.com/k8se/quickstart:latest'  // Placeholder during initial provision
 
+@description('Custom domain name for the web app (optional)')
+param customDomainName string = ''
+
+@description('Name of existing managed certificate for custom domain (optional)')
+param customDomainCertificateName string = ''
+
 @description('Default tags applied by Azure Policy (optional)')
 param defaultTags object = {}
 
@@ -69,6 +75,8 @@ module app 'main-app.bicep' = {
     entraSpaClientId: entraSpaClientId
     entraTenantId: entraTenantId
     webImageName: webImageName
+    customDomainName: customDomainName
+    customDomainCertificateName: customDomainCertificateName
   }
 }
 

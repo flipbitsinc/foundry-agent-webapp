@@ -8,6 +8,8 @@ param targetPort int
 param env array = []
 param enableIngress bool = true
 param external bool = true
+param customDomainName string = ''
+param customDomainCertificateId string = ''
 
 resource containerRegistry 'Microsoft.ContainerRegistry/registries@2023-01-01-preview' existing = {
   name: containerRegistryName
@@ -29,6 +31,13 @@ resource containerApp 'Microsoft.App/containerApps@2023-05-01' = {
         targetPort: targetPort
         transport: 'auto'
         allowInsecure: false
+        customDomains: !empty(customDomainName) && !empty(customDomainCertificateId) ? [
+          {
+            name: customDomainName
+            certificateId: customDomainCertificateId
+            bindingType: 'SniEnabled'
+          }
+        ] : []
       } : null
       registries: [
         {

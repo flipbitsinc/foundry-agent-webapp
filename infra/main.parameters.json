@@ -12,7 +12,7 @@
       "value": "${ENTRA_SPA_CLIENT_ID}"
     },
     "entraTenantId": {
-      "value": "${ENTRA_TENANT_ID}"
+      "value": "48d6867c-da7e-4bf3-9e9f-08e8e8897d71"
     },
     "webImageName": {
       "value": "${SERVICE_WEB_IMAGE_NAME=}"
@@ -22,6 +22,12 @@
     },
     "aiAgentId": {
       "value": "${AI_AGENT_ID=}"
+    },
+    "customDomainName": {
+      "value": "chat.worldcaketopper.ca"
+    },
+    "customDomainCertificateName": {
+      "value": "chat.worldcaketopper.ca-cae-y4qn-260224044437"
     }
   }
 }

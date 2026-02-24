@@ -23,21 +23,45 @@ if (-not $account) {
 }
 Write-Host "[OK] Azure CLI: $($account.user.name)" -ForegroundColor Green
 
-# Get environment
+# Validate tenant configuration early
+$configuredTenantId = (azd env get-value ENTRA_TENANT_ID 2>&1) | Where-Object { $_ -notmatch 'ERROR' } | Select-Object -First 1
+$currentAccountTenantId = $account.tenantId
 $envName = (azd env get-value AZURE_ENV_NAME 2>&1) | Where-Object { $_ -notmatch 'ERROR' } | Select-Object -First 1
 if ([string]::IsNullOrWhiteSpace($envName)) { $envName = $env:AZURE_ENV_NAME }
+
+# Check for tenant mismatch and warn user
+if ($configuredTenantId -and $configuredTenantId -ne $currentAccountTenantId) {
+    Write-Host "[!] Tenant mismatch detected!" -ForegroundColor Yellow
+    Write-Host "    Your azd environment is configured for: $configuredTenantId" -ForegroundColor White
+    Write-Host "    But you're logged into Azure as: $currentAccountTenantId" -ForegroundColor White
+    Write-Host "    Using configured tenant: $configuredTenantId" -ForegroundColor Cyan
+    Write-Host "    To use current account's tenant instead: azd env unset ENTRA_TENANT_ID" -ForegroundColor DarkGray
+    Write-Host "    Then re-run: azd provision" -ForegroundColor DarkGray
+} elseif (-not $configuredTenantId) {
+    Write-Host "[!] No tenant configured, will auto-detect from current Azure account" -ForegroundColor Yellow
+    Write-Host "    To set manually: azd env set ENTRA_TENANT_ID <your-tenant-id>" -ForegroundColor DarkGray
+}
+
 if ([string]::IsNullOrWhiteSpace($envName)) {
     Write-Host "[ERROR] AZURE_ENV_NAME not set. Run 'azd init' first." -ForegroundColor Red
     exit 1
 }
 
-# Auto-detect tenant if not set
+# Determine tenant ID - use manually set value if available, otherwise auto-detect
 $tenantId = (azd env get-value ENTRA_TENANT_ID 2>&1) | Where-Object { $_ -notmatch 'ERROR' } | Select-Object -First 1
+$tenantSource = "MANUAL"
+
 if ([string]::IsNullOrWhiteSpace($tenantId)) {
     $tenantId = $account.tenantId
+    $tenantSource = "AUTO-DETECTED"
     azd env set ENTRA_TENANT_ID $tenantId
 }
-Write-Host "[OK] Tenant: $tenantId" -ForegroundColor Green
+
+Write-Host "[OK] Tenant: $tenantId ($tenantSource)" -ForegroundColor Green
+if ($tenantSource -eq "AUTO-DETECTED") {
+    Write-Host "    To override: azd env set ENTRA_TENANT_ID <your-tenant-id>" -ForegroundColor DarkGray
+    Write-Host "    Then re-run: azd env refresh" -ForegroundColor DarkGray
+}
 
 Write-Host "[OK] Environment: $envName" -ForegroundColor Green
 

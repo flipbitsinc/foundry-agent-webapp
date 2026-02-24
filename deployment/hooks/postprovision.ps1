@@ -31,6 +31,7 @@ $app = az ad app show --id $clientId | ConvertFrom-Json
 $redirectUris = @(
     "http://localhost:8080",
     "http://localhost:5173",
+    "https://chat.worldcaketopper.ca",
     $containerAppUrl
 )
 
